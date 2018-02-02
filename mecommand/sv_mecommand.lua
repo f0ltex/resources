@@ -1,0 +1,7 @@
+-- ME COMMAND (/me [Message]) Outcomes: Name Message (All in purple)
+TriggerEvent('es:addCommand', 'me', function(source, args, user)
+    table.remove(args, 1)
+    TriggerClientEvent('chatMessage', -1, "", {255, 0, 0}, " ^6 " .. GetPlayerName(source) .."  ".."^6  " .. table.concat(args, " "))
+end, function(source, args, user)
+    TriggerClientEvent('chatMessage', source, "SYSTEM", {255, 0, 0}, "Insufficienct permissions!")
+end)
